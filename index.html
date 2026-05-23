@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reasons I Fell For You 💌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#060816;
+color:white;
+overflow-x:hidden;
+min-height:100vh;
+padding:25px 15px;
+position:relative;
+}
+
+/* stars */
+
+.stars{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-1;
+}
+
+.star{
+position:absolute;
+background:white;
+border-radius:50%;
+opacity:0.7;
+animation:twinkle linear infinite;
+}
+
+@keyframes twinkle{
+0%,100%{
+opacity:0.2;
+transform:scale(1);
+}
+50%{
+opacity:1;
+transform:scale(1.8);
+}
+}
+
+/* hearts */
+
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:18px;
+animation:rise linear forwards;
+pointer-events:none;
+z-index:1;
+}
+
+@keyframes rise{
+0%{
+transform:translateY(0) scale(1);
+opacity:0.8;
+}
+100%{
+transform:translateY(-110vh) scale(1.8);
+opacity:0;
+}
+}
+
+/* container */
+
+.container{
+max-width:950px;
+margin:auto;
+position:relative;
+z-index:2;
+}
+
+/* hero */
+
+.hero{
+padding:60px 25px;
+text-align:center;
+border-radius:35px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 10px 40px rgba(0,0,0,0.45);
+margin-bottom:35px;
+}
+
+h1{
+font-size:clamp(2.8rem,8vw,4.8rem);
+line-height:1.2;
+margin-bottom:18px;
+
+background:linear-gradient(to right,#ffb6c1,#ffd6e7,#ffffff);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+line-height:2;
+opacity:0.92;
+max-width:720px;
+margin:auto;
+font-size:1rem;
+}
+
+/* cards */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:22px;
+margin-top:25px;
+}
+
+.card{
+position:relative;
+height:260px;
+border-radius:28px;
+overflow:hidden;
+cursor:pointer;
+perspective:1000px;
+}
+
+.inner{
+position:relative;
+width:100%;
+height:100%;
+transition:transform 0.8s;
+transform-style:preserve-3d;
+}
+
+.card.open .inner{
+transform:rotateY(180deg);
+}
+
+.front,
+.back{
+position:absolute;
+width:100%;
+height:100%;
+backface-visibility:hidden;
+border-radius:28px;
+padding:28px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.front{
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.front h2{
+font-size:1.2rem;
+margin-bottom:15px;
+color:#ffd6e7;
+}
+
+.front p{
+opacity:0.8;
+line-height:1.8;
+}
+
+.back{
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+transform:rotateY(180deg);
+line-height:2;
+font-size:0.96rem;
+padding:25px;
+}
+
+/* final */
+
+.final{
+margin-top:35px;
+padding:35px;
+border-radius:32px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+text-align:center;
+line-height:2.2;
+font-size:1rem;
+}
+
+.footer{
+margin-top:35px;
+text-align:center;
+opacity:0.7;
+line-height:1.8;
+font-size:0.9rem;
+}
+
+/* mobile */
+
+@media(max-width:600px){
+
+.hero,
+.final{
+padding:24px 18px;
+}
+
+.subtitle,
+.back,
+.final{
+font-size:0.92rem;
+line-height:2;
+}
+
+.card{
+height:240px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="container">
+
+<!-- HERO -->
+
+<div class="hero">
+
+<h1>
+Reasons I Fell<br>
+For You 💌
+</h1>
+
+<p class="subtitle">
+Tap the cards baby.
+
+Every single one hides a reason why my heart slowly became yours.
+</p>
+
+</div>
+
+<!-- CARDS -->
+
+<div class="cards">
+
+<!-- CARD 1 -->
+
+<div class="card" onclick="flip(this)">
+<div class="inner">
+
+<div class="front">
+<h2>👓 Card #1</h2>
+<p>Tap to reveal why your specs destroy my heart emotionally.</p>
+</div>
+
+<div class="back">
+The way you adjust your specs while talking seriously...
+
+God.
+
+That tiny habit is unfairly attractive.
+
+You don't even realize how adorable you look during those moments.
+</div>
+
+</div>
+</div>
+
+<!-- CARD 2 -->
+
+<div class="card" onclick="flip(this)">
+<div class="inner">
+
+<div class="front">
+<h2>🌙 Card #2</h2>
+<p>Tap to reveal sleepy-you secrets.</p>
+</div>
+
+<div class="back">
+Your sleepy texts feel softer.
+
+More honest.
+
+More vulnerable.
+
+And somehow that version of you makes me want to protect you forever.
+</div>
+
+</div>
+</div>
+
+<!-- CARD 3 -->
+
+<div class="card" onclick="flip(this)">
+<div class="inner">
+
+<div class="front">
+<h2>🤍 Card #3</h2>
+<p>Tap to reveal what your closeness does to me.</p>
+</div>
+
+<div class="back">
+The way you deliberately brush against me and then pretend you did nothing...
+
+Baby...
+
+those tiny touches stay in my chest for hours.
+</div>
+
+</div>
+</div>
+
+<!-- CARD 4 -->
+
+<div class="card" onclick="flip(this)">
+<div class="inner">
+
+<div class="front">
+<h2>😂 Card #4</h2>
+<p>Tap to reveal your dangerous talent.</p>
+</div>
+
+<div class="back">
+You somehow turn normal conversations into double meanings within seconds.
+
+And honestly?
+
+Watching you smirk after that is one of my favorite things ever.
+</div>
+
+</div>
+</div>
+
+<!-- CARD 5 -->
+
+<div class="card" onclick="flip(this)">
+<div class="inner">
+
+<div class="front">
+<h2>💕 Card #5</h2>
+<p>Tap to reveal my favorite sound.</p>
+</div>
+
+<div class="back">
+Your laugh.
+
+Especially the uncontrollable one.
+
+The one where you completely forget the world for a second.
+
+Happiness looks beautiful on you baby.
+</div>
+
+</div>
+</div>
+
+<!-- CARD 6 -->
+
+<div class="card" onclick="flip(this)">
+<div class="inner">
+
+<div class="front">
+<h2>🫀 Card #6</h2>
+<p>Tap to reveal what healed me.</p>
+</div>
+
+<div class="back">
+You made love feel safe instead of scary.
+
+And I don't think you realize how deeply that changed me emotionally.
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!-- FINAL -->
+
+<div class="final">
+
+You know what's funny?
+
+None of these reasons are “big.”
+
+They're tiny habits.
+
+Tiny moments.
+
+Tiny little versions of you.
+
+But that's exactly how I fell for you.
+
+Slowly.
+
+Quietly.
+
+Completely.
+
+And honestly baby...
+
+I think I will keep discovering new reasons to love you for the rest of my life.
+
+❤️
+
+</div>
+
+<div class="footer">
+
+for GK 🤍
+
+“my favorite place somehow became beside you.”
+
+</div>
+
+</div>
+
+<script>
+
+/* stars */
+
+const stars=document.getElementById("stars");
+
+for(let i=0;i<170;i++){
+
+const star=document.createElement("div");
+
+star.classList.add("star");
+
+const size=Math.random()*3;
+
+star.style.width=size+"px";
+star.style.height=size+"px";
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+
+star.style.animationDuration=(Math.random()*4+2)+"s";
+
+stars.appendChild(star);
+
+}
+
+/* hearts */
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="❤";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(Math.random()*3+4)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},7000);
+
+}
+
+setInterval(createHeart,450);
+
+/* flip cards */
+
+function flip(card){
+
+card.classList.toggle("open");
+
+}
+
+</script>
+
+</body>
+</html>
